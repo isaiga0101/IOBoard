@@ -1,0 +1,3 @@
+#Install
+
+To install this program you need the Propellor Tool availible at [Parallax](https://www.parallax.com/downloads/propeller-tool-software). The propellant also availible at [Parallax.com](https://www.parallax.com). If you installed the Propellor tool then just double click the .binary file in cmm folder. If you have the propellant from Parallax than either drag the .binary  file onto the propellant program or right click the file and press "open with", then find the propellant software and click it.
