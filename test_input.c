@@ -78,11 +78,12 @@ int input_high(void) {
 int input_low(void) {
   pins = 0;
   print("Pin 0 through pin: ");
-  scan("%d\n",pins);
+  scan("%d\n",&pins);
   while (pins >= 0) {
     if (input(pins) == 0) {
       print("Pin %d\n",pins);
     }
+    pins --;
   }
   return 0;           
 }
