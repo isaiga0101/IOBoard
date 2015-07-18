@@ -8,6 +8,7 @@ char highin[5] = {"high"};
 char lowin[4] = {"low"};
 char inputtxt[3] = {"in"};
 char ls[3] = {"ls"};
+char scriptmode[4] = {"scr"};
 char text[16];
 int pins = 0;
 int pincontainer;
