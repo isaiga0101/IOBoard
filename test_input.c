@@ -55,8 +55,13 @@ int in(void){
 }
 
 int print_list(void) {
+  print("       Standard Commands\n");
+  print("       =================\n");
+  print("ls       ---       Display the current commands.\n\n");
+  
+  print("Read Commands\n");
+  print("=============\n");
   print("in       ---       Show the input of a particular pin.\n");
-  print("ls       ---       Display the current commands.\n");
   print("high     ---       Display the pins that have a voltage applied to them.\n");
   print("low      ---       Display the pins that have no voltage applied to them.\n");
   return 0;
