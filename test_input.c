@@ -4,10 +4,12 @@
 
 #include "simpletools.h"
 
+// Variables from comparing text from the terminal to these strings
 char highin[5] = {"high"};
 char lowin[4] = {"low"};
 char inputtxt[3] = {"in"};
 char ls[3] = {"ls"};
+
 char text[16];
 int pins = 0;
 int pincontainer;
@@ -25,7 +27,7 @@ int main(void) {
   print("Pins 12 - 17 set to High Impendance mode. Those connections are safe.\n");
   print("To start press button.\n");
   while(input(0) == 0);                                                   // Wait until the button is pressed
-  
+  // Main loop
   while(1) {
     print("Type \"ls\" to view all functions.\n>> ");
     getStr(text,15);
@@ -38,6 +40,11 @@ int main(void) {
   return 0;
 }
 
+/*************************************************
+ * Prompts the user to type which pin to monitor *
+ * and then continually display the input of that*
+ * pin.                                          *
+ *************************************************/
 int in(void){
       pins = 0;
       print("Which pin: ");
@@ -54,6 +61,7 @@ int in(void){
       return 0;        
 }
 
+// Prints a list of the current commands
 int print_list(void) {
   print("       Standard Commands\n");
   print("       =================\n");
@@ -67,6 +75,7 @@ int print_list(void) {
   return 0;
 }
 
+// Shows all the pins that are floating high.
 int input_high(void) {
   pins = 0;
   print("Pin 0 through  pin: ");
@@ -80,6 +89,7 @@ int input_high(void) {
   return 0;    
 }
 
+// Shows all the pins that are connected to ground
 int input_low(void) {
   pins = 0;
   print("Pin 0 through pin: ");
