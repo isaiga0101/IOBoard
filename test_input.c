@@ -8,6 +8,8 @@ char highin[5] = {"high"};
 char lowin[4] = {"low"};
 char inputtxt[3] = {"in"};
 char ls[3] = {"ls"};
+char digiwrite[3] = {"dw"};
+
 char text[16];
 int pins = 0;
 int pincontainer;
@@ -16,6 +18,8 @@ int input_high(void);
 int input_low(void);
 int in(void);
 int print_list(void);
+int digital_write(void);
+
 int main(void) {
   // Initialization
   // Set pins 12 to 17 to High Impendence mode
@@ -33,6 +37,7 @@ int main(void) {
     else if (!strcmp(inputtxt,text)) in();
     else if (!strcmp(highin,text)) input_high();
     else if (!strcmp(lowin,text)) input_low();
+    else if (!strcmp(digiwrite,text)) digital_write();
   }    
   
   return 0;
@@ -92,3 +97,21 @@ int input_low(void) {
   }
   return 0;           
 }
+
+int digital_write(void) {
+  int sig = 0;
+  pins = 0;
+  int loop = 0;
+  while (loop == 0) {
+    print("What signal do you want to send (1 or 0): ");
+    scan("%d\n",&sig);
+        
+    print("What pin: ");
+    scan("%d\n",&pins);
+    if (sig == 1) high(pins);
+    else if(sig == 0) low(pins);
+    else loop = 1; print("Error! Command only excepts the interger 1 or 0\n");
+    loop = 1;                                         // Exit the loop
+    print("Pin %d set to %d\n",pins,sig);
+  }    
+}  
