@@ -1,2 +1,5 @@
 #ignore all .side files
 *.side
+
+#Ignore .o files
+*.o
