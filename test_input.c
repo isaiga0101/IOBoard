@@ -4,21 +4,32 @@
 
 #include "simpletools.h"
 
+// Variables from comparing text from the terminal to these strings
 char highin[5] = {"high"};
 char lowin[4] = {"low"};
 char inputtxt[3] = {"in"};
 char ls[3] = {"ls"};
+<<<<<<< HEAD
 char digiwrite[3] = {"dw"};
+=======
+>>>>>>> master
 
 char text[16];
 int pins = 0;
 int pincontainer;
 
+<<<<<<< HEAD
 int input_high(void);
 int input_low(void);
 int in(void);
 int print_list(void);
 int digital_write(void);
+=======
+void input_high(void);
+void input_low(void);
+void in(void);
+void print_list(void);
+>>>>>>> master
 
 int main(void) {
   // Initialization
@@ -29,7 +40,7 @@ int main(void) {
   print("Pins 12 - 17 set to High Impendance mode. Those connections are safe.\n");
   print("To start press button.\n");
   while(input(0) == 0);                                                   // Wait until the button is pressed
-  
+  // Main loop
   while(1) {
     print("Type \"ls\" to view all functions.\n>> ");
     getStr(text,15);
@@ -43,7 +54,12 @@ int main(void) {
   return 0;
 }
 
-int in(void){
+/*************************************************
+ * Prompts the user to type which pin to monitor *
+ * and then continually display the input of that*
+ * pin.                                          *
+ *************************************************/
+void in(void){
       pins = 0;
       print("Which pin: ");
       scan("%d\n",&pins);
@@ -55,11 +71,11 @@ int in(void){
         print(" = %d\n",pincontainer);
         if (input(0) == 1) break;
         pause(100);
-      }
-      return 0;        
+      }        
 }
 
-int print_list(void) {
+// Prints a list of the current commands
+void print_list(void) {
   print("       Standard Commands\n");
   print("       =================\n");
   print("ls       ---       Display the current commands.\n\n");
@@ -69,10 +85,10 @@ int print_list(void) {
   print("in       ---       Show the input of a particular pin.\n");
   print("high     ---       Display the pins that have a voltage applied to them.\n");
   print("low      ---       Display the pins that have no voltage applied to them.\n");
-  return 0;
 }
 
-int input_high(void) {
+// Shows all the pins that are floating high.
+void input_high(void) {
   pins = 0;
   print("Pin 0 through  pin: ");
   scan("%d\n",&pins);
@@ -81,11 +97,11 @@ int input_high(void) {
     pincontainer = input(pins);
     print(" = %d\n",pincontainer);
     pins = pins - 1;
-  }
-  return 0;    
+  }   
 }
 
-int input_low(void) {
+// Shows all the pins that are connected to ground
+void input_low(void) {
   pins = 0;
   print("Pin 0 through pin: ");
   scan("%d\n",&pins);
@@ -94,6 +110,7 @@ int input_low(void) {
       print("Pin %d\n",pins);
     }
     pins --;
+<<<<<<< HEAD
   }
   return 0;           
 }
@@ -115,3 +132,7 @@ int digital_write(void) {
     print("Pin %d set to %d\n",pins,sig);
   }    
 }  
+=======
+  }           
+}
+>>>>>>> master
