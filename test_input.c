@@ -9,15 +9,17 @@ char highin[5] = {"high"};
 char lowin[4] = {"low"};
 char inputtxt[3] = {"in"};
 char ls[3] = {"ls"};
+char scriptmode[4] = {"scr"};
 
 char text[16];
 int pins = 0;
 int pincontainer;
 
-int input_high(void);
-int input_low(void);
-int in(void);
-int print_list(void);
+void input_high(void);
+void input_low(void);
+void in(void);
+void print_list(void);
+
 int main(void) {
   // Initialization
   // Set pins 12 to 17 to High Impendence mode
@@ -45,7 +47,7 @@ int main(void) {
  * and then continually display the input of that*
  * pin.                                          *
  *************************************************/
-int in(void){
+void in(void){
       pins = 0;
       print("Which pin: ");
       scan("%d\n",&pins);
@@ -57,12 +59,11 @@ int in(void){
         print(" = %d\n",pincontainer);
         if (input(0) == 1) break;
         pause(100);
-      }
-      return 0;        
+      }        
 }
 
 // Prints a list of the current commands
-int print_list(void) {
+void print_list(void) {
   print("       Standard Commands\n");
   print("       =================\n");
   print("ls       ---       Display the current commands.\n\n");
@@ -72,11 +73,10 @@ int print_list(void) {
   print("in       ---       Show the input of a particular pin.\n");
   print("high     ---       Display the pins that have a voltage applied to them.\n");
   print("low      ---       Display the pins that have no voltage applied to them.\n");
-  return 0;
 }
 
 // Shows all the pins that are floating high.
-int input_high(void) {
+void input_high(void) {
   pins = 0;
   print("Pin 0 through  pin: ");
   scan("%d\n",&pins);
@@ -85,12 +85,11 @@ int input_high(void) {
     pincontainer = input(pins);
     print(" = %d\n",pincontainer);
     pins = pins - 1;
-  }
-  return 0;    
+  }   
 }
 
 // Shows all the pins that are connected to ground
-int input_low(void) {
+void input_low(void) {
   pins = 0;
   print("Pin 0 through pin: ");
   scan("%d\n",&pins);
@@ -99,6 +98,5 @@ int input_low(void) {
       print("Pin %d\n",pins);
     }
     pins --;
-  }
-  return 0;           
+  }           
 }
