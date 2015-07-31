@@ -9,27 +9,24 @@ char highin[5] = {"high"};
 char lowin[4] = {"low"};
 char inputtxt[3] = {"in"};
 char ls[3] = {"ls"};
-<<<<<<< HEAD
 char digiwrite[3] = {"dw"};
-=======
->>>>>>> master
+char pulseout[3] = {"po"};
 
 char text[16];
 int pins = 0;
 int pincontainer;
 
-<<<<<<< HEAD
 int input_high(void);
 int input_low(void);
 int in(void);
 int print_list(void);
 int digital_write(void);
-=======
+
+void pulseO(void);
 void input_high(void);
 void input_low(void);
 void in(void);
 void print_list(void);
->>>>>>> master
 
 int main(void) {
   // Initialization
@@ -110,7 +107,6 @@ void input_low(void) {
       print("Pin %d\n",pins);
     }
     pins --;
-<<<<<<< HEAD
   }
   return 0;           
 }
@@ -131,8 +127,9 @@ int digital_write(void) {
     loop = 1;                                         // Exit the loop
     print("Pin %d set to %d\n",pins,sig);
   }    
-}  
-=======
-  }           
 }
->>>>>>> master
+
+void pulseO(void) {
+  int sig = 0;
+  
+}  
